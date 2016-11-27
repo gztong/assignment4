@@ -96,3 +96,19 @@ input:-moz-placeholder {
   line-height: 45px;
   text-align: center;
 }
+
+.dropdown {
+  margin-top;
+  color: #333;
+  font-family: 'Helvetica', sans-serif;
+  font-size: 26px;
+}
+
+ul{
+  list-style-type: none;
+}
+
+a {
+  color: #333;
+  text-decoration: none; 
+}

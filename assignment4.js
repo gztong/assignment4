@@ -12,6 +12,39 @@
 // keyup events could be helpful to get value of field as the user types
 
 (function() {
-  // Magic!
-  console.log('Keepin\'n it clean with an external script!');
+    var data = [];
+    $.ajax({
+      url: "http://www.mattbowytz.com/simple_api.json?data=all",
+      type: "GET"
+    }).done(function(ret){
+      for(item in ret.data.programming) data.push(ret.data.programming[item].toLowerCase()); 
+      for(item in ret.data.interests) data.push(ret.data.interests[item].toLowerCase());
+    });
+
+    console.log(data);
+   $(".flexsearch-input").keyup(function(event){
+     var input = $(".flexsearch-input").val() || "";
+     input = input.toLowerCase();
+     if(input === ""){
+      $("#dropdown-list").html("");
+    }else{
+      $("#dropdown-list").html( match(input) );
+    }
+     
+   });
+
+
+   function match(input){
+    var ret = "";
+    for(item in data){
+      if( data[item].substring(0, input.length) === input ) {
+        ret += ( "<li><a href='http://www.google.com/search?q="+data[item]+"'>" + data[item] + "</a></li>" );
+      }
+    }
+    return ret;
+   }
+
+
 })();
+
+
