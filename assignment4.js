@@ -21,7 +21,6 @@
       for(item in ret.data.interests) data.push(ret.data.interests[item].toLowerCase());
     });
 
-    console.log(data);
    $(".flexsearch-input").keyup(function(event){
      var input = $(".flexsearch-input").val() || "";
      input = input.toLowerCase();
@@ -30,9 +29,7 @@
     }else{
       $("#dropdown-list").html( match(input) );
     }
-     
    });
-
 
    function match(input){
     var ret = "";
@@ -42,9 +39,7 @@
       }
     }
     return ret;
-   }
-
-
+   } 
 })();
 
 
